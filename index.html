@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#6554c0">
+  <meta name="description" content="Explore seis desafios e conheça mulheres que transformaram a ciência e a tecnologia.">
+  <title>Você é a inventora! — Semana da Tecnologia</title>
+  <link rel="icon" href="assets/icons/inventora.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="assets/icons/inventora.png">
+  <link rel="manifest" href="manifest.json">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Você é a Inventora!">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default"> 
+
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/content.js" defer></script>
+  <script src="js/photo-credits.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./service-worker.js")
+        .catch((error) => {
+          console.error("Não foi possível ativar o modo offline:", error);
+        });
+    });
+  }
+</script>
+
+<body>
+  <a class="skip" href="#main">Pular para o conteúdo</a>
+  <header class="header">
+    <a href="#" class="brand" data-home>
+      <img class="brand-icon" src="assets/icons/inventora.png" alt="" width="42" height="42">
+      <span>Você é a inventora<span class="purple">!</span>
+    </span></a><div class="header-right">
+      <span class="event-label">SEMANA DA TECNOLOGIA</span>
+      <button class="home-button" type="button" data-home>
+        <span aria-hidden="true">⌂</span> 
+        <span>Início</span>
+      </button></div></header>
+  <main id="main" tabindex="-1"></main>
+  <footer><span>Pequenas perguntas. Grandes possibilidades.</span><span>Feito para explorar, imaginar e aprender <span aria-hidden="true">✦</span></span></footer>
+  <noscript>Ative o JavaScript do navegador para explorar as missões. A aplicação funciona sem internet.</noscript>
+</body>
+</html>

@@ -1,0 +1,1080 @@
+
+/* =========================================================
+   1. VARIÁVEIS E CONFIGURAÇÕES GERAIS
+   ========================================================= */
+
+:root {
+  --ink: #282941;
+  --muted: #64657a;
+  --purple: #6554b5;
+  --line: #e6e4ef;
+  --paper: #faf9fd;
+  --blue: #355cb1;
+
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+a,
+input,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  touch-action: manipulation;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: var(--purple);
+  text-underline-offset: 4px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+
+/* =========================================================
+   2. ACESSIBILIDADE E FOCO
+   ========================================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #305dd0;
+  outline-offset: 5px;
+}
+
+.skip {
+  position: fixed;
+  top: -80px;
+  left: 20px;
+  z-index: 10;
+  background: white;
+  padding: 16px;
+}
+
+.skip:focus {
+  top: 12px;
+}
+
+main:focus {
+  outline: none;
+}
+
+h1[tabindex="-1"]:focus {
+  outline: none;
+}
+
+
+/* =========================================================
+   3. CABEÇALHO E MARCA
+   ========================================================= */
+
+.header {
+  height: 92px;
+  max-width: 1240px;
+  margin: auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-weight: 750;
+  font-size: 20px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand-icon {
+  display: grid;
+  place-items: center;
+  background: #eae4fa;
+  border-radius: 14px;
+  width: 42px;
+  height: 42px;
+  color: var(--purple);
+  font-size: 29px;
+}
+
+.brand img.brand-icon {
+  object-fit: contain;
+  background: transparent;
+  border-radius: 0;
+}
+
+.purple {
+  color: var(--purple);
+}
+
+.header-right {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.event-label {
+  font-size: 10px;
+  letter-spacing: 1.6px;
+  font-weight: 750;
+  color: var(--muted);
+}
+
+.home-button {
+  border: 1px solid #dedbe9;
+  background: white;
+  padding: 10px 17px;
+  border-radius: 12px;
+  color: var(--ink);
+  font-weight: 600;
+  min-height: 44px;
+}
+
+
+/* =========================================================
+   4. ESTRUTURA PRINCIPAL
+   ========================================================= */
+
+main {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 32px;
+  min-height: calc(100vh - 185px);
+}
+
+.screen {
+  max-width: 920px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+  animation: appear 0.25s ease-out;
+}
+
+
+/* =========================================================
+   5. TELA INICIAL E APRESENTAÇÃO
+   ========================================================= */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  align-items: center;
+  padding: 52px 0 35px;
+  gap: 35px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--purple);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.eyebrow .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #8b78c9;
+}
+
+h1 {
+  font-size: clamp(36px, 4.5vw, 58px);
+  letter-spacing: -2.3px;
+  line-height: 1.08;
+  margin: 17px 0 19px;
+  font-weight: 780;
+}
+
+h1 span {
+  display: block;
+  color: var(--purple);
+}
+
+.hero p {
+  max-width: 500px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.hero-note {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 23px;
+  color: #656078;
+  font-size: 12px;
+}
+
+.hero-note b {
+  background: #e9e3f8;
+  color: var(--purple);
+  border-radius: 50%;
+  padding: 3px 7px;
+}
+
+.art {
+  position: relative;
+  max-width: 420px;
+  justify-self: center;
+  width: 100%;
+  aspect-ratio: 1.25;
+}
+
+.art svg {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* =========================================================
+   6. TÍTULOS E SEÇÕES
+   ========================================================= */
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: end;
+  margin: 15px 0 22px;
+}
+
+.reflection {
+  white-space: pre-line;
+}
+
+h2 {
+  font-size: 24px;
+  letter-spacing: -0.65px;
+  margin: 0 0 7px;
+}
+
+p {
+  line-height: 1.7;
+}
+
+.section-title p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.small-tag {
+  font-size: 11px;
+  color: #777487;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   7. CARTÕES DAS ÁREAS
+   ========================================================= */
+
+.areas {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.area {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 19px;
+  padding: 23px;
+  text-align: left;
+  position: relative;
+  min-height: 177px;
+  color: var(--ink);
+  transition:
+    transform 0.18s,
+    box-shadow 0.18s,
+    border-color 0.18s;
+}
+
+.area:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 9px 24px #3f33680d;
+  border-color: var(--accent);
+}
+
+.area h3 {
+  font-size: 18px;
+  margin: 15px 0 7px;
+  letter-spacing: -0.3px;
+}
+
+.area p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.55;
+  max-width: 230px;
+}
+
+.arrow {
+  position: absolute;
+  right: 22px;
+  top: 33px;
+  color: var(--accent);
+  font-size: 21px;
+}
+
+
+/* =========================================================
+   8. ÍCONES SVG
+   ========================================================= */
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 13px;
+  background: var(--tint, #eee8fc);
+  color: var(--accent, var(--purple));
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+.icon svg {
+  width: 40px;
+  height: 40px;
+  overflow: visible;
+}
+
+.area-label {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.area-label .icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+.area-label svg {
+  width: 50px;
+  height: 50px;
+}
+
+
+/* =========================================================
+   9. CONVITE PARA CRIAR
+   ========================================================= */
+
+.invitation {
+  background: #efedf8;
+  border: 1px solid #e7e2f4;
+  border-radius: 15px;
+  padding: 17px 22px;
+  margin: 25px 0 35px;
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  font-size: 13px;
+  color: #61567f;
+}
+
+.invitation strong {
+  color: #4e4171;
+}
+
+
+/* =========================================================
+   10. RODAPÉ
+   ========================================================= */
+
+footer {
+  max-width: 1160px;
+  margin: 25px auto 0;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px 32px;
+  font-size: 11px;
+  color: #767386;
+}
+
+footer span span {
+  color: var(--purple);
+  margin-left: 8px;
+}
+
+
+/* =========================================================
+   11. INDICADOR DE PROGRESSO
+   ========================================================= */
+
+.progress {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  padding: 25px 0 0;
+  margin: 0 0 32px;
+  color: #7c788b;
+  font-size: 12px;
+  flex-wrap: wrap;
+}
+
+.progress li {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.progress li:not(:last-child)::after {
+  content: '—';
+  margin: 0 7px;
+  color: #cbc5db;
+}
+
+.progress .step {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  background: #eeeaf5;
+  border-radius: 50%;
+  font-size: 11px;
+}
+
+.progress [aria-current="step"] {
+  color: var(--purple);
+  font-weight: 700;
+}
+
+.progress [aria-current="step"] .step {
+  background: var(--purple);
+  color: white;
+}
+
+
+/* =========================================================
+   12. TELAS INTERNAS E INTRODUÇÃO
+   ========================================================= */
+
+.screen h1 {
+  font-size: 40px;
+  line-height: 1.15;
+  letter-spacing: -1.3px;
+}
+
+.intro {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 760px;
+}
+
+.problem {
+  border-left: 3px solid var(--accent);
+  padding: 12px 19px;
+  background: var(--tint);
+  border-radius: 0 12px 12px 0;
+  margin: 24px 0;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.fiction {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+
+/* =========================================================
+   13. ESCOLHAS E ALTERNATIVAS
+   ========================================================= */
+
+.choices {
+  border: 0;
+  padding: 0;
+  margin: 27px 0 0;
+  min-width: 0;
+}
+
+.choices legend {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  margin-bottom: 17px;
+}
+
+.choice {
+  display: flex;
+  gap: 14px;
+  border: 1px solid #dedbe8;
+  background: white;
+  border-radius: 15px;
+  padding: 19px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  align-items: flex-start;
+}
+
+.choice:has(input:checked) {
+  border-color: var(--purple);
+  background: #f3effd;
+  box-shadow: 0 0 0 1px var(--purple);
+}
+
+input[type="radio"] {
+  accent-color: var(--purple);
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin: 2px 0;
+}
+
+.choice strong {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.choice small {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+  display: block;
+}
+
+
+/* =========================================================
+   14. IDEIA PRÓPRIA E PRIVACIDADE
+   ========================================================= */
+
+.own-box {
+  background: #f0ecf8;
+  border-radius: 14px;
+  padding: 20px;
+  margin: 14px 0;
+}
+
+.own-box label {
+  display: block;
+  font-size: 14px;
+  font-weight: 650;
+  margin-bottom: 10px;
+}
+
+textarea {
+  display: block;
+  resize: vertical;
+  width: 100%;
+  min-height: 135px;
+  border: 1px solid #aaa0c7;
+  border-radius: 10px;
+  padding: 13px;
+  line-height: 1.6;
+  background: white;
+  color: var(--ink);
+}
+
+.counter {
+  text-align: right;
+  color: #686078;
+  font-size: 12px;
+  margin: 8px 0 0;
+}
+
+.privacy {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.error {
+  color: #a62544;
+  font-weight: 650;
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   15. BOTÕES E AÇÕES
+   ========================================================= */
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  min-height: 48px;
+  border: 1px solid #ddd7eb;
+  border-radius: 12px;
+  padding: 13px 21px;
+  font-weight: 650;
+  background: white;
+  color: #574b78;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn.primary {
+  background: var(--purple);
+  border-color: var(--purple);
+  color: white;
+}
+
+.btn:hover {
+  filter: brightness(0.96);
+}
+
+
+/* =========================================================
+   16. RESULTADOS E DETALHES
+   ========================================================= */
+
+.result-head {
+  background: #efebf9;
+  border-radius: 17px;
+  padding: 23px;
+  margin: 25px 0;
+}
+
+.result-head h2 {
+  font-size: 22px;
+  margin: 6px 0 8px;
+}
+
+.result-head p {
+  margin: 0;
+  color: #5b536c;
+  font-size: 15px;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.detail {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  padding: 22px;
+}
+
+.detail h2 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.detail p {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.reflection {
+  background: #eaf0fb;
+  border-radius: 14px;
+  padding: 20px 23px;
+  margin: 20px 0;
+  color: #3c537e;
+  line-height: 1.6;
+}
+
+.reflection strong {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.own-text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  color: #44365c;
+  font-size: 17px;
+  margin: 0;
+}
+
+
+/* =========================================================
+   17. PERFIL DA MULHER INSPIRADORA
+   ========================================================= */
+
+.woman-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 36px;
+  margin-top: 28px;
+}
+
+.photo-wrap {
+  margin: 0;
+}
+
+.photo-wrap img {
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 18px;
+  background: #e6e1ed;
+  filter: saturate(0.65);
+}
+
+figcaption {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+  margin-top: 10px;
+  overflow-wrap: anywhere;
+}
+
+.woman-copy h1 {
+  margin-top: 8px;
+}
+
+.woman-copy .years {
+  font-size: 12px;
+  letter-spacing: 1.4px;
+  color: var(--muted);
+}
+
+.woman-copy h2 {
+  font-size: 17px;
+  margin-top: 24px;
+}
+
+.woman-copy p {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.encourage {
+  background: #eee8fa;
+  border-radius: 15px;
+  padding: 22px;
+  margin-top: 20px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #56417d;
+}
+
+
+/* =========================================================
+   18. FONTES E REFERÊNCIAS EXPANSÍVEIS
+   ========================================================= */
+
+details {
+  margin-top: 24px;
+  border: 1px solid var(--line);
+  background: white;
+  border-radius: 12px;
+  padding: 17px;
+  font-size: 13px;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 650;
+  min-height: 24px;
+}
+
+details li {
+  margin: 12px 0;
+}
+
+details p {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+
+/* =========================================================
+   19. ANIMAÇÕES
+   ========================================================= */
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   20. TELAS GRANDES
+   ========================================================= */
+
+@media (min-width: 1400px) {
+  .hero {
+    padding-top: 65px;
+  }
+
+  .areas {
+    gap: 20px;
+  }
+
+  .area {
+    min-height: 185px;
+  }
+}
+
+
+/* =========================================================
+   21. TABLETS
+   ========================================================= */
+
+@media (max-width: 800px) {
+  .header {
+    padding: 0 24px;
+  }
+
+  .hero {
+    gap: 0;
+    grid-template-columns: 1.3fr 0.85fr;
+  }
+
+  .art {
+    min-width: 200px;
+  }
+
+  h1 {
+    font-size: 43px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .areas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .event-label {
+    display: none;
+  }
+
+  .woman-layout {
+    grid-template-columns: 210px 1fr;
+    gap: 24px;
+  }
+
+  .photo-wrap img {
+    height: 280px;
+  }
+}
+
+
+/* =========================================================
+   22. CELULARES
+   ========================================================= */
+
+@media (max-width: 540px) {
+  .header {
+    height: 76px;
+    padding: 0 18px;
+  }
+
+  .brand {
+    font-size: 15px;
+    gap: 8px;
+  }
+
+  .brand-icon {
+    width: 33px;
+    height: 36px;
+    font-size: 24px;
+  }
+
+  .home-button {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  main {
+    padding: 0 20px;
+  }
+
+  .hero {
+    display: block;
+    padding: 35px 0 25px;
+  }
+
+  .hero h1 {
+    font-size: 43px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .art {
+    display: none;
+  }
+
+  .hero-note {
+    font-size: 11px;
+  }
+
+  .section-title {
+    align-items: start;
+  }
+
+  .section-title h2 {
+    font-size: 21px;
+  }
+
+  .small-tag {
+    display: none;
+  }
+
+  .areas {
+    gap: 12px;
+  }
+
+  .area {
+    padding: 17px 14px;
+    min-height: 188px;
+    border-radius: 15px;
+  }
+
+  .area h3 {
+    font-size: 16px;
+  }
+
+  .area p {
+    font-size: 12px;
+  }
+
+  .arrow {
+    right: 15px;
+    top: 27px;
+    font-size: 18px;
+  }
+
+  .invitation {
+    padding: 16px;
+    font-size: 12px;
+  }
+
+  footer {
+    padding: 23px 20px;
+    display: block;
+    line-height: 1.8;
+  }
+
+  footer > span {
+    display: block;
+  }
+
+  .progress {
+    font-size: 10px;
+    gap: 4px;
+    margin-bottom: 28px;
+  }
+
+  .progress li {
+    gap: 4px;
+  }
+
+  .progress li:not(:last-child)::after {
+    margin: 0 1px;
+  }
+
+  .progress .step {
+    width: 20px;
+    height: 20px;
+  }
+
+  .screen h1 {
+    font-size: 32px;
+  }
+
+  .result-grid,
+  .woman-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-wrap {
+    max-width: 250px;
+  }
+
+  .photo-wrap img {
+    height: 300px;
+  }
+
+  .actions .btn {
+    width: 100%;
+    font-size: 13px;
+  }
+
+  .choice {
+    padding: 16px;
+  }
+
+  .intro {
+    font-size: 15px;
+  }
+}
+
+
+/* =========================================================
+   23. PREFERÊNCIA POR MENOS MOVIMENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
